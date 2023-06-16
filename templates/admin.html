@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="">
+        <h1>Adicionar produto</h1>
+        <form method="POST" class="" enctype="multipart/form-data">
+            <div class="">
+                <label for="name">*Nome:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="">
+                <label for="price">*Preço:</label>
+                <input type="number" name="price" step="0.01" min="0" required>
+            </div>
+            <div class="">
+                <label for="description">Descrição:</label>
+                <input type="text" name="description" required>
+            </div>
+            <div class="">
+                <label for="collection">coleção:</label>
+                <div class="">
+                {% for collection in collections %}
+                <input type="radio" id="{{collection.collection_name}}" name="collection" value="{{collection.collection_id}}">
+                <p>{{collection.collection_id}}.{{collection.collection_name}}</p>
+                {% endfor %}
+                </div>
+                <label for="section">sessão:</label>
+                <div class="">
+                    {% for section in sections %}
+                    <input type="radio" id="{{section.section_name}}" name="section" value="{{section.section_id}}">
+                    <p>{{section.section_id}}.{{section.section_name}}</p>
+                    {% endfor %}
+                    </div>
+            </div>
+            <div>
+                <label for="image">Image:</label>
+                <input type="file" name="image">
+            </div>
+            <button type="submit" name="prod_add" value="TRUE" class="">Adicionar produto</button>
+        </form>
+    </section>
+    <section class="">
+    <h2>Products List</h2>
+    <table class="">
+        <tr>
+            <td>
+                <p>nome</p>
+            </td>
+            <td>
+                <p>preço</p>
+            </td>
+            <td>
+                <p>sessão</p>
+            </td>
+            <td>
+                <p>coleção</p>
+            </td>
+            <td>
+                <p>descrição</p>
+            </td>
+            <td>
+                <p>imagem</p>
+            </td>
+        </tr>
+        {% for product in products %}
+            <tr>
+                    <td><p>{{ product.prod_name }}</p></td>
+                    <td><p>{{ product.prod_price }}</p></td>
+                    <td><p>{{ product.prod_collection }}</p></td>
+                    <td><p>{{ product.prod_section }}</p></td>
+                    <td><p>{{ product.prod_description }}</p></td>
+                    <td><img src="static\upload\prod_{{product.prod_id}}.jpg" alt="" class=""></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </section>
+    <section class="">
+        <h1>Adicionar destaque</h1>
+        <form method="POST" class="" enctype="multipart/form-data">
+            <div class="">
+                <label for="name_high">*Nome:</label>
+                <input type="text" name="name_high" required>
+            </div>
+            <div class="">
+                <label for="description_high">Descrição:</label>
+                <input type="text" name="description_high" required>
+            </div>
+            <div>
+                <label for="image_high">Image:</label>
+                <input type="file" name="image_high">
+            </div>
+            <button name="high_add" value="TRUE" class="">Adicionar Destaque</button>
+        </form>
+    </section>
+   
+   <section class="">
+       <h2>Products List</h2>
+       <table class="">
+           <tr>
+               <td>
+                   <p>nome</p>
+               </td>
+               <td>
+                   <p>descrição</p>
+               </td>
+               <td>
+                   <p>imagem</p>
+               </td>
+           </tr>
+           {% for high in highlights %}
+               <tr>
+                       <td><p>{{ high.highlight_name }}</p></td>
+                       <td><p>{{ high.highlight_description }}</p></td>
+                       <td><img src="static\upload\highlight_{{high.highlight_id}}.jpg" alt="" class=""></td>
+               </tr>
+           {% endfor %}
+       </table>
+   </section>
+
+{% endblock %}

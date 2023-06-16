@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{{url_for('static', filename='css/reset.css')}}" type="text/css"/>
+     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     
+     <title>Joycebiju</title>
+</head>
+<body class ="bgcolor">
+     <header>
+          <nav class="links" style="--items: 5;">
+          <a href = "/" class="">Home</a>
+          <a href = "/destaques" class="">Destaques</a>
+          <a href = "/pulseiras" class="">Pulseiras</a>
+          <a href = "/colares" class="">Colares</a>
+          <a href = "/brincos" class="">Brincos</a>
+          <a href = "/aneis" class="">Aneis</a>
+          <a href = "#" class="">Contatos</a>
+          </nav>
+     </header>
+     <main>
+          {% block content %} {% endblock %}
+     </main>
+     <footer class="site-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <h6>Outras Páginas</h6>
+                <ul class="footer-links">
+                  <li><a href="/destaques">Destaques</a></li>
+                  <li><a href="/pulseiras">Pulseiras</a></li>
+                  <li><a href="/colares">Colares</a></li>
+                  <li><a href="/brincos">Brincos</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-sm-6 col-xs-12">
+               <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
+               <a href="#">RuanCard Flavio Zero1</a>.
+               </p>
+              </div>
+    
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                  <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="instagram" href="https://www.instagram.com/joyce.bijuterias/"><i class="fa fa-instagram"></i></a></li>
+                  <li><a class="whatsapp" href="https://wa.me/5511949901233"><i class="fa fa-whatsapp"></i></a></li>   
+                </ul>
+              </div>
+            </div>
+          </div>
+    </footer>
+</body>
+</html>

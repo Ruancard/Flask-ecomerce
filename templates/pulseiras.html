@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container-produto">
+    <h1 class="">pulseiras</h1>
+    <div class = "produto">
+         {% for product in products %}
+         <a href="../product/{{ product.prod_id }}" class="card-produto">
+              <img class = "produto-img" src="../static\upload\prod_{{ product.prod_id }}.jpg" alt="product.prod_name">
+              <h3 class="">{{ product.prod_name }}</h3>
+              <p class="">Preço: R${{ product.prod_price }}</p>
+         </a>
+         {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
